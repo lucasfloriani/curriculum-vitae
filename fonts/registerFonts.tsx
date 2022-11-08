@@ -1,4 +1,4 @@
-import { Font } from "@react-pdf/renderer";
+import { Font } from "@react-pdf/renderer/lib/react-pdf.browser.cjs.js";
 
 import MontserratThin from "./Montserrat/Montserrat-Thin.ttf";
 import MontserratExtraLight from "./Montserrat/Montserrat-ExtraLight.ttf";
