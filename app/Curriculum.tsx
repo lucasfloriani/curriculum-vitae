@@ -10,8 +10,7 @@ import {
   StyleSheet,
   PDFViewer,
   Image,
-} from "@react-pdf/renderer";
-import "@react-pdf/renderer/lib/react-pdf.browser.es.js";
+} from "@react-pdf/renderer/lib/react-pdf.browser.cjs.js";
 import curriculumStyles from "./Curriculum.module.css";
 import "../fonts/registerFonts";
 
