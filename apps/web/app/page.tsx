@@ -1,18 +1,23 @@
 "use client";
 
 import React from "react";
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
+import Curriculum from "../components/Curriculum";
+import Container from "../components/Container";
+import DownloadButton from "../components/DownloadButton";
+import ActionsSection from "../components/ActionsSection";
+import PageLayout from "../components/PageLayout";
+import Info from "../components/Info";
 
 export default function Web() {
   return (
-    <div>
-      <Document file="curriculum.pdf">
-        <Page
-          pageNumber={1}
-          renderAnnotationLayer={false}
-          renderTextLayer={false}
-        />
-      </Document>
-    </div>
+    <Container>
+      <PageLayout>
+        <Info />
+        <Curriculum />
+        <ActionsSection>
+          <DownloadButton />
+        </ActionsSection>
+      </PageLayout>
+    </Container>
   );
 }
