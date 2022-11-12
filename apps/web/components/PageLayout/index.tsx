@@ -10,6 +10,11 @@ const PageLayout = styled.main`
   padding: 20px;
   box-sizing: border-box;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 export default PageLayout;

@@ -4,13 +4,23 @@ import DownloadButton from "../DownloadButton";
 import SelectLanguage from "../SelectLanguage";
 import Spacing from "../Spacing";
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 const Title = styled.h1`
   color: #fff;
   font-family: var(--font-league-spartan);
   font-size: 3em;
   margin: 0;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Info = () => {
