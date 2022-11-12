@@ -37,7 +37,6 @@ const bottomBubbles = keyframes`
 `;
 
 const Button = styled.a`
-  font-family: "Helvetica", "Arial", sans-serif;
   display: inline-block;
   font-size: 1em;
   padding: 1em 2em;
@@ -51,6 +50,8 @@ const Button = styled.a`
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
   text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
 
   &:focus {
     outline: 0;

@@ -1,15 +1,28 @@
 import styled from "@emotion/styled";
+import useTranslations from "../../hooks/useTranslations";
+import DownloadButton from "../DownloadButton";
 import SelectLanguage from "../SelectLanguage";
+import Spacing from "../Spacing";
 
 const Wrapper = styled.section``;
 
-// Toggle language
-// https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/5689d7346883552359d20ae9ba31643d-1599190096/All%20Pages/design-creative-ui-ux-design-for-mobile-app.jpg
+const Title = styled.h1`
+  color: #fff;
+  font-family: var(--font-league-spartan);
+  font-size: 3em;
+  margin: 0;
+`;
 
 const Info = () => {
+  const { translation } = useTranslations();
+
   return (
     <Wrapper>
+      <Title>{translation["info:title"]}</Title>
+      <Spacing height="1.5em" />
       <SelectLanguage />
+      <Spacing height="2em" />
+      <DownloadButton />
     </Wrapper>
   );
 };

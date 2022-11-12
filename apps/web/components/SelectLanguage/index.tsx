@@ -44,8 +44,11 @@ const Wrapper = styled.section`
 
 const Button = styled.button<{ popupOpen: boolean }>`
   background-color: #fff;
-  width: 200px;
+  width: 300px;
   padding: 12px 16px;
+  cursor: pointer;
+  font-family: var(--font-league-spartan);
+  font-size: 14px;
   border: none;
   border-radius: ${({ popupOpen }) => (popupOpen ? "6px 6px 0 0" : "6px")};
   text-align: left;
@@ -63,14 +66,18 @@ const Popup = styled.ul<{ isOpen: boolean }>`
   gap: 6px;
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 300px;
   border-radius: 0 0 6px 6px;
+  z-index: 10;
 `;
 
 const LanguageOption = styled.li`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  font-family: var(--font-league-spartan);
+  font-size: 14px;
+  cursor: pointer;
   align-items: center;
   padding: 12px 16px;
   width: 100%;
