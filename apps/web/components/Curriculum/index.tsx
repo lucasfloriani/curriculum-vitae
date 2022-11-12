@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
-import { useWindowSize } from "react-use";
+import { useMedia, useWindowSize } from "react-use";
 import useTranslations from "../../hooks/useTranslations";
 import { Languages } from "../../i18n/types";
 import { Loading, LoadingWrapper, PDFWrapper } from "./styles";
@@ -14,14 +14,15 @@ const Curriculum = () => {
   const { loading, currentLanguage } = useTranslations();
   const [pdfHeight, setPdfHeight] = useState(0);
   const { width } = useWindowSize();
+  const isWide = useMedia("(max-width: 768px)");
 
   useEffect(() => {
-    // TODO: Add responsive width logic for container too
     const containerWidth = 1200;
     const wrapperWidth = Math.min(width, containerWidth);
-    const pdfWrapperWidth = wrapperWidth / 2 - 30;
-    setPdfHeight(pdfWrapperWidth);
-  }, [width]);
+    const columns = isWide ? 1 : 2;
+    const pdfWrapperWidth = wrapperWidth / columns - 30;
+    setPdfHeight(pdfWrapperWidth * 0.8);
+  }, [isWide, width]);
 
   if (loading || pdfHeight === 0) {
     return null;

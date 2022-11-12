@@ -21,7 +21,6 @@ export const PDFWrapper = styled.a`
   display: inline-flex;
   background-color: #0d0d0d;
   overflow: hidden;
-  justify-self: flex-end;
   align-items: center;
   justify-content: center;
   cursor: pointer;

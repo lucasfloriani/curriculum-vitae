@@ -7,7 +7,7 @@ const PageLayout = styled.main`
   justify-items: center;
   grid-template-columns: 1fr 1fr;
   margin: auto 0;
-  padding: 20px;
+  padding: 16px;
   box-sizing: border-box;
   min-height: 100vh;
 
