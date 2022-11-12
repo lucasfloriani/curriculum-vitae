@@ -4,11 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 import { useMedia, useWindowSize } from "react-use";
 import useTranslations from "../../hooks/useTranslations";
-import { Languages } from "../../i18n/types";
+import { getPDFFilename } from "../../utils/pdf";
 import { Loading, LoadingWrapper, PDFWrapper } from "./styles";
-
-const getPDFFilename = (language: Languages): string =>
-  language.startsWith("pt") ? "curriculum-pt-br.pdf" : "curriculum-en-us.pdf";
 
 const Curriculum = () => {
   const { loading, currentLanguage } = useTranslations();

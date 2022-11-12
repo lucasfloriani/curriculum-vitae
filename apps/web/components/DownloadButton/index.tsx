@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { darken } from "polished";
 import useTranslations from "../../hooks/useTranslations";
+import { getPDFFilename } from "../../utils/pdf";
 
 const topBubbles = keyframes`
   0% {
@@ -128,7 +129,7 @@ const Button = styled.a`
 `;
 
 const DownloadButton = () => {
-  const { loading, translation } = useTranslations();
+  const { currentLanguage, loading, translation } = useTranslations();
   const buttonRef = useRef<HTMLAnchorElement>(null);
 
   const animateButton = () => {
@@ -139,13 +140,10 @@ const DownloadButton = () => {
     }, 700);
   };
 
+  const pdfFilename = getPDFFilename(currentLanguage);
+
   return (
-    <Button
-      // href="curriculum.pdf"
-      onClick={animateButton}
-      // download
-      ref={buttonRef}
-    >
+    <Button href={pdfFilename} onClick={animateButton} download ref={buttonRef}>
       {loading ? "Loading..." : translation["download-button"]}
     </Button>
   );
