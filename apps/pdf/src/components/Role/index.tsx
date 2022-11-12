@@ -2,6 +2,8 @@ import React from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import defaultTheme from "../../theme/default";
 import commonStyles from "../../common/styles";
+import useLanguageContext from "../Providers/Language/useLanguage";
+import { OptionsKey } from "../../i18n/types";
 
 const styles = StyleSheet.create({
   roleSubSection: {
@@ -27,34 +29,45 @@ const styles = StyleSheet.create({
 });
 
 const Role = () => {
+  const translations = useLanguageContext();
+  const data = Object.keys(translations)
+    .filter(
+      (key): key is OptionsKey =>
+        key.startsWith("role:") && key !== "role:title"
+    )
+    .reduce((list, key) => {
+      const splittedKey = key.split(":");
+      const orderNumber = parseInt(splittedKey[1], 10);
+      const infoName = splittedKey[2];
+
+      if (list[orderNumber]) {
+        list[orderNumber] = {
+          ...list[orderNumber],
+          [infoName]: translations[key],
+        };
+        return list;
+      }
+
+      list[orderNumber] = {
+        "job-title": "",
+        "company-name": "",
+        time: "",
+        [infoName]: translations[key],
+      };
+
+      return list;
+    }, [] as { "job-title": string; "company-name": string; time: string }[]);
+
   return (
     <View>
       <Text style={commonStyles.sectionTitle}>EXPERIÊNCIA PROFISSIONAL</Text>
-      <View style={styles.roleSubSection}>
-        <Text style={styles.roleSubTitle}>Tech Lead</Text>
-        <Text style={styles.roleContent}>FOTON TECH</Text>
-        <Text style={styles.roleContent}>JANEIRO 2021 - ATUAL</Text>
-      </View>
-      <View style={styles.roleSubSection}>
-        <Text style={styles.roleSubTitle}>Fullstack Developer</Text>
-        <Text style={styles.roleContent}>FOTON TECH</Text>
-        <Text style={styles.roleContent}>JULHO 2020 - JANEIRO 2021</Text>
-      </View>
-      <View style={styles.roleSubSection}>
-        <Text style={styles.roleSubTitle}>Programador Freelancer</Text>
-        <Text style={styles.roleContent}>FREELANCER</Text>
-        <Text style={styles.roleContent}>OUTUBRO 2019 - JULHO 2020</Text>
-      </View>
-      <View style={styles.roleSubSection}>
-        <Text style={styles.roleSubTitle}>Programador</Text>
-        <Text style={styles.roleContent}>BPLUS TECNOLOGIA LTDA.</Text>
-        <Text style={styles.roleContent}>JANEIRO 2018 - OUTUBRO 2019</Text>
-      </View>
-      <View style={styles.roleSubSection}>
-        <Text style={styles.roleSubTitle}>Programador Web</Text>
-        <Text style={styles.roleContent}>XTHOR SOLUÇÕES TECNOLOGICAS</Text>
-        <Text style={styles.roleContent}>SETEMBRO 2015 - JANEIRO 2018</Text>
-      </View>
+      {data.map((info) => (
+        <View style={styles.roleSubSection} key={info.time}>
+          <Text style={styles.roleSubTitle}>{info["job-title"]}</Text>
+          <Text style={styles.roleContent}>{info["company-name"]}</Text>
+          <Text style={styles.roleContent}>{info.time}</Text>
+        </View>
+      ))}
     </View>
   );
 };

@@ -6,7 +6,6 @@ const ActionsSection = styled.section`
   justify-items: center;
   width: 100%;
   grid-column: 1 / -1;
-  margin-top: -100px;
 `;
 
 export default ActionsSection;

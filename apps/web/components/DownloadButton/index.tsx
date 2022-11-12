@@ -1,9 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import { darken } from "polished";
+import useTranslations from "../../hooks/useTranslations";
 
 const topBubbles = keyframes`
-  0 {
+  0% {
     background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
   }
 
@@ -18,7 +22,7 @@ const topBubbles = keyframes`
 `;
 
 const bottomBubbles = keyframes`
-  0 {
+  0% {
     background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
   }
 
@@ -28,7 +32,7 @@ const bottomBubbles = keyframes`
 
   100% {
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-    background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 `;
 
@@ -37,8 +41,6 @@ const Button = styled.a`
   display: inline-block;
   font-size: 1em;
   padding: 1em 2em;
-  margin-top: 100px;
-  margin-bottom: 60px;
   appearance: none;
   background-color: #ff0081;
   color: #fff;
@@ -83,7 +85,7 @@ const Button = styled.a`
       15% 15%, 10% 10%, 18% 18%;
   }
 
-  &:after {
+  &::after {
     display: none;
     bottom: -75%;
     background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
@@ -99,7 +101,7 @@ const Button = styled.a`
 
   &:active {
     transform: scale(0.9);
-    background-color: darken(#ff0081, 5%);
+    background-color: ${darken(0.05, "#ff0081")};
     box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
   }
 
@@ -116,16 +118,25 @@ const Button = styled.a`
 `;
 
 const DownloadButton = () => {
-  const animateButton = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.currentTarget.classList.add("animate");
+  const { loading, translation } = useTranslations();
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+
+  const animateButton = () => {
+    console.log("buttonRef:", buttonRef);
+    buttonRef.current?.classList.add("animate");
     setTimeout(() => {
-      e.currentTarget?.classList.remove("animate");
+      buttonRef.current?.classList.remove("animate");
     }, 700);
   };
 
   return (
-    <Button href="curriculum.pdf" onClick={animateButton} download>
-      Download Curriculum
+    <Button
+      // href="curriculum.pdf"
+      onClick={animateButton}
+      // download
+      ref={buttonRef}
+    >
+      {loading ? "Loading..." : translation["download-button"]}
     </Button>
   );
 };

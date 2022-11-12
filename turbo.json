@@ -11,6 +11,8 @@
     "dev": {
       "cache": false
     },
-    "generate:pdf": {}
+    "generate:pdf": {
+      "cache": false
+    }
   }
 }

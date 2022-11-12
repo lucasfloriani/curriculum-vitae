@@ -2,6 +2,8 @@ import React from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import defaultTheme from "../../theme/default";
 import commonStyles from "../../common/styles";
+import useLanguageContext from "../Providers/Language/useLanguage";
+import { OptionsKey } from "../../i18n/types";
 
 const styles = StyleSheet.create({
   courses: {
@@ -27,106 +29,23 @@ const styles = StyleSheet.create({
 });
 
 const Courses = () => {
+  const translations = useLanguageContext();
+  // TODO: Fix types from courses variable, it's string[] for now
+  const courses = Object.keys(translations)
+    .filter((key): key is OptionsKey => key.startsWith("courses:course:title:"))
+    .map((key) => translations[key]);
+
   return (
     <View style={styles.courses}>
-      <Text style={commonStyles.sectionTitle}>CURSOS</Text>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>EggHead – React Hooks and Suspense</Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          EggHead – Shareable Custom Hooks in React
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>SoloLearn - CSS Fundamentals Course</Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          SoloLearn - HTML Fundamentals Course
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          SoloLearn - JavaScript Tutorial Course
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>TreinaWeb - Docker Primeiros Passos</Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          TreinaWeb - Git e Github Controle de versão
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>TreinaWeb - Go Básico</Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          TreinaWeb - GraphQL Criando Apis modernas com Graphcool e Apollo
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          TreinaWeb - Javascript Teste automatizado com Jasmine
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          TreinaWeb - Lógica Orientada a Objetos Completo
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          TreinaWeb - Npm Gerenciador de pacotes para Javascript
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>UDESC - Introdução ao Wordpress</Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          UDESC - Melhorando seu processo de desenvolvimento de software usando
-          Scrum, Git Workflows e GitLab
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          Udemy - Go: The Complete Developers Guide (Golang)
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          Udemy - Modern JavaScript From the Beginning
-        </Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>Udemy - Sasss /SCSS: Curso Completo</Text>
-      </View>
-      <View style={styles.listWrapper}>
-        <Text style={styles.listIcon}>•</Text>
-        <Text style={styles.listText}>
-          Udemy - Webpack 2: The Complete Developers Guide
-        </Text>
-      </View>
+      <Text style={commonStyles.sectionTitle}>
+        {translations["courses:title"]}
+      </Text>
+      {courses.map((course) => (
+        <View style={styles.listWrapper} key={course}>
+          <Text style={styles.listIcon}>•</Text>
+          <Text style={styles.listText}>{course}</Text>
+        </View>
+      ))}
     </View>
   );
 };

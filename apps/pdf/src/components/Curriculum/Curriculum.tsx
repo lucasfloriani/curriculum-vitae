@@ -9,6 +9,8 @@ import Formation from "../Formation";
 import Tecnologies from "../Tecnologies";
 import Sidebar from "../Sidebar";
 import defaultTheme from "../../theme/default";
+import { Languages } from "../../i18n/types";
+import LanguageProvider from "../Providers/Language";
 
 const styles = StyleSheet.create({
   page: {
@@ -30,27 +32,33 @@ const styles = StyleSheet.create({
   },
 });
 
-const Curriculum = () => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.mainContent}>
-        <Header />
-        <View style={styles.body}>
-          <View style={styles.bodyColumn}>
-            <Presentation />
-            <Contact />
-            <Courses />
-          </View>
-          <View style={styles.bodyColumn}>
-            <Role />
-            <Formation />
-            <Tecnologies />
+interface Props {
+  language: Languages;
+}
+
+const Curriculum = ({ language }: Props) => (
+  <LanguageProvider language={language}>
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.mainContent}>
+          <Header />
+          <View style={styles.body}>
+            <View style={styles.bodyColumn}>
+              <Presentation />
+              <Contact />
+              <Courses />
+            </View>
+            <View style={styles.bodyColumn}>
+              <Role />
+              <Formation />
+              <Tecnologies />
+            </View>
           </View>
         </View>
-      </View>
-      <Sidebar />
-    </Page>
-  </Document>
+        <Sidebar />
+      </Page>
+    </Document>
+  </LanguageProvider>
 );
 
 export default Curriculum;

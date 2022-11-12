@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import defaultTheme from "../../theme/default";
 import commonStyles from "../../common/styles";
+import useLanguageContext from "../Providers/Language/useLanguage";
 
 const styles = StyleSheet.create({
   tecnologies: {
@@ -20,14 +21,15 @@ const styles = StyleSheet.create({
 });
 
 const Tecnologies = () => {
+  const translation = useLanguageContext();
+
   return (
     <View style={styles.tecnologies}>
-      <Text style={commonStyles.sectionTitle}>TECNOLOGIAS</Text>
+      <Text style={commonStyles.sectionTitle}>
+        {translation["tecnologies:title"]}
+      </Text>
       <Text style={styles.tecnologiesContent}>
-        Go - Git - CSS - NPM - Gulp - SASS - CSS3 - REST - HTML - Linux - Scrum
-        - Redux - GitLab - Apollo - MySQL - Docker - GitHub - React.js - GraphQL
-        - Webpack - JavaScript - WordPress - Redux Saga - PostgreSQL - React
-        Native
+        {translation["tecnologies:content"]}
       </Text>
     </View>
   );

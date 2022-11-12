@@ -1,14 +1,18 @@
 import React from "react";
 import { Text, View } from "@react-pdf/renderer";
 import commonStyles from "../../common/styles";
+import useLanguageContext from "../Providers/Language/useLanguage";
 
 const Presentation = () => {
+  const translations = useLanguageContext();
+
   return (
     <View>
-      <Text style={commonStyles.sectionTitle}>APRESENTAÇÃO</Text>
+      <Text style={commonStyles.sectionTitle}>
+        {translations["presentation:title"]}
+      </Text>
       <Text style={commonStyles.sectionContent}>
-        Desenvolvedor Fullstack Senior com Go/React com experiência como Tech
-        Lead.
+        {translations["presentation:content"]}
       </Text>
     </View>
   );

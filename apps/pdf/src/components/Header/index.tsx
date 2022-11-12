@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import defaultTheme from "../../theme/default";
+import useLanguageContext from "../Providers/Language/useLanguage";
 
 const styles = StyleSheet.create({
   header: {
@@ -32,11 +33,15 @@ const styles = StyleSheet.create({
 });
 
 const Header = () => {
+  const translations = useLanguageContext();
+
   return (
     <View style={styles.header}>
-      <Text style={styles.firstName}>LUCAS</Text>
-      <Text style={styles.lastName}>FLORIANI</Text>
-      <Text style={styles.roleDescription}>Desenvolvedor Full Stack</Text>
+      <Text style={styles.firstName}>{translations["header:firstName"]}</Text>
+      <Text style={styles.lastName}>{translations["header:lastName"]}</Text>
+      <Text style={styles.roleDescription}>
+        {translations["header:roleDescription"]}
+      </Text>
     </View>
   );
 };
