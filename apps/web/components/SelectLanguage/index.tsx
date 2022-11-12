@@ -133,7 +133,10 @@ const SelectLanguage = () => {
 
   return (
     <Wrapper ref={selectLanguageRef}>
-      <Button popupOpen={popupStatus} onClick={() => setPopupStatus(true)}>
+      <Button
+        popupOpen={popupStatus}
+        onClick={() => setPopupStatus((oldStatus) => !oldStatus)}
+      >
         <span>{buttonText}</span>
         <CheckBox checked />
       </Button>

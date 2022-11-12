@@ -53,8 +53,16 @@ const Button = styled.a`
   text-align: center;
   box-sizing: border-box;
 
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   &:focus {
-    outline: 0;
+    outline: none !important;
   }
 
   &::before,
@@ -68,6 +76,7 @@ const Button = styled.a`
     z-index: -1000;
     transition: all ease-in-out 0.5s;
     background-repeat: no-repeat;
+    background-color: transparent;
   }
 
   &::before {

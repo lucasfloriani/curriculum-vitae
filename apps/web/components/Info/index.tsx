@@ -19,6 +19,7 @@ const Title = styled.h1`
   margin: 0;
 
   @media (max-width: 768px) {
+    font-size: 2.4em;
     text-align: center;
   }
 `;
@@ -33,6 +34,7 @@ const Info = () => {
       <SelectLanguage />
       <Spacing height="2em" />
       <DownloadButton />
+      <Spacing height="2em" />
     </Wrapper>
   );
 };
