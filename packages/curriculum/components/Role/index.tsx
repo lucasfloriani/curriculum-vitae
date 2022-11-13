@@ -60,7 +60,9 @@ const Role = () => {
 
   return (
     <View>
-      <Text style={commonStyles.sectionTitle}>EXPERIÊNCIA PROFISSIONAL</Text>
+      <Text style={commonStyles.sectionTitle}>
+        {translations["role:title"]}
+      </Text>
       {data.map((info) => (
         <View style={styles.roleSubSection} key={info.time}>
           <Text style={styles.roleSubTitle}>{info["job-title"]}</Text>

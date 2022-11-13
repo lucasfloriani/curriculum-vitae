@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "start:dev": "turbo run start --filter=dev",
     "dev": "turbo run dev --parallel --no-cache --force",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

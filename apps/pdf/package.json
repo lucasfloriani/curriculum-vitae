@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "generate:pdf": "ts-node ./src/index.tsx --project tsconfig.json"
+    "generate:pdf": "ts-node ./index.tsx --project tsconfig.json"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.0.1",
+    "curriculum": "*",
+    "pdf-fonts": "*",
     "react": "^18.2.0"
   }
 }
