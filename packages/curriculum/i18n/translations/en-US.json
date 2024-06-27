@@ -15,7 +15,7 @@
     {
       "title": "Senior Software Engineer",
       "company": "TOURRADAR",
-      "time": "DEC 2021 - JUN 2024",
+      "time": "Dec 2021 - Jun 2024",
       "achievements": [
         "Refactored the tour price calculator to include price categories by user demographics, enhancing offer precision and personalization",
         "Led technological decision-making for frontend projects, ensuring innovation and efficiency",
@@ -28,7 +28,7 @@
     {
       "title": "Tech Lead",
       "company": "FOTON TECH",
-      "time": "JAN 2021 - OCT 2021",
+      "time": "Jan 2021 - Oct 2021",
       "achievements": [
         "Significantly contributed to the structuring of the company and its culture, resulting in staff growth and project increase",
         "Led the migration of legacy architectures in multinational projects, ensuring modernization and efficiency",
@@ -38,7 +38,7 @@
     {
       "title": "Fullstack Developer",
       "company": "FOTON TECH",
-      "time": "JUL 2020 - JAN 2021",
+      "time": "Jul 2020 - Jan 2021",
       "achievements": [
         "Developed and structured design systems in monorepo projects, standardizing and optimizing development",
         "Structured GraphQL projects with a focus on type-safety, ensuring data integrity and efficiency",
@@ -49,19 +49,19 @@
     {
       "title": "Freelancer Developer",
       "company": "FREELANCER",
-      "time": "OCT 2019 - JUL 2020",
+      "time": "Oct 2019 - Jul 2020",
       "achievements": []
     },
     {
       "title": "Developer",
       "company": "BPLUS TECNOLOGIA LTDA",
-      "time": "JAN 2018 - OCT 2019",
+      "time": "Jan 2018 - Oct 2019",
       "achievements": []
     },
     {
       "title": "Web Developer",
       "company": "XTHOR SOLUÇÕES TECNOLOGICAS",
-      "time": "SEP 2015 - JAN 2018",
+      "time": "Sep 2015 - Jan 2018",
       "achievements": []
     }
   ],
