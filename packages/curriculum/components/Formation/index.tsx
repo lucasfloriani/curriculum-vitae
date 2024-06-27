@@ -40,7 +40,7 @@ const Formation = () => {
         {translations["formation:title"]}
       </Text>
       {translations.formations.map((formation) => (
-        <View style={styles.formationSubSection}>
+        <View style={styles.formationSubSection} key={formation.title}>
           <Text style={styles.formationSubTitle}>
             {formation.title} - {formation.description}
           </Text>
