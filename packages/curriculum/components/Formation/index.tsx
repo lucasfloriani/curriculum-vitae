@@ -6,9 +6,13 @@ import useLanguageContext from "../Providers/Language/useLanguage";
 
 const styles = StyleSheet.create({
   formation: {
-    marginTop: 8,
+    marginTop: 12,
   },
-  formationSubSection: {},
+  formationSubSection: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   formationSubTitle: {
     fontFamily: defaultTheme.fonts.secondary,
     color: defaultTheme.colors.grey.light,
@@ -24,7 +28,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     lineHeight: 1.3,
     fontWeight: 400,
-    width: 220,
   },
 });
 
@@ -36,17 +39,14 @@ const Formation = () => {
       <Text style={commonStyles.sectionTitle}>
         {translations["formation:title"]}
       </Text>
-      <View style={styles.formationSubSection}>
-        <Text style={styles.formationSubTitle}>
-          {translations["formation:section:1:title"]}
-        </Text>
-        <Text style={styles.formationContent}>
-          {translations["formation:section:1:content:1"]}
-        </Text>
-        <Text style={styles.formationContent}>
-          {translations["formation:section:1:content:2"]}
-        </Text>
-      </View>
+      {translations.formations.map((formation) => (
+        <View style={styles.formationSubSection}>
+          <Text style={styles.formationSubTitle}>
+            {formation.title} - {formation.description}
+          </Text>
+          <Text style={styles.formationContent}>{formation.time}</Text>
+        </View>
+      ))}
     </View>
   );
 };

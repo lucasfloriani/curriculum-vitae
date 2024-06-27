@@ -1,56 +1,80 @@
 {
-  "header:firstName": "LUCAS",
-  "header:lastName": "FLORIANI",
+  "firstName": "LUCAS",
+  "lastName": "FLORIANI",
   "header:roleDescription": "Full Stack Developer",
-  "contact:title": "CONTACT",
-  "contact:phone": "Cellphone: +55 47 99196-9365",
-  "contact:email": "Email: lucas.floriane@gmail.com",
-  "contact:github": "Github: @lucasfloriani",
-  "contact:linkedin": "LinkedIn: @lucasfloriani13",
-  "courses:title": "COURSES",
-  "courses:course:title:1": "EggHead – React Hooks and Suspense",
-  "courses:course:title:2": "EggHead – Shareable Custom Hooks in React",
-  "courses:course:title:3": "SoloLearn - CSS Fundamentals Course",
-  "courses:course:title:4": "SoloLearn - HTML Fundamentals Course",
-  "courses:course:title:5": "SoloLearn - JavaScript Tutorial Course",
-  "courses:course:title:6": "TreinaWeb - First Steps Docker",
-  "courses:course:title:7": "TreinaWeb - Git and Github Version control",
-  "courses:course:title:8": "TreinaWeb - Go Basic",
-  "courses:course:title:9": "TreinaWeb - GraphQL Creating modern Apis with Graphcool and Apollo",
-  "courses:course:title:10": "TreinaWeb - Javascript Automated Testing with Jasmine",
-  "courses:course:title:11": "TreinaWeb - Complete Object Oriented Logic",
-  "courses:course:title:12": "TreinaWeb - Npm Package Manager for Javascript",
-  "courses:course:title:13": "UDESC - Introduction to Wordpress",
-  "courses:course:title:14": "UDESC - Improving your software development process using Scrum, Git Workflows and GitLab",
-  "courses:course:title:15": "Udemy - Go: The Complete Developers Guide (Golang)",
-  "courses:course:title:16": "Udemy - Modern JavaScript From the Beginning",
-  "courses:course:title:17": "Udemy - Sass/SCSS: Full Course",
-  "courses:course:title:18": "Udemy - Webpack 2: The Complete Developers Guide",
   "formation:title": "ACADEMIC EDUCATION",
-  "formation:section:1:title": "UDESC - CEPLAN",
-  "formation:section:1:content:1": "BACHELOR INFORMATION SYSTEMS.",
-  "formation:section:1:content:2": "2014-2019",
-  "presentation:title": "BIO",
-  "presentation:content": "Senior Fullstack developer with Go/Node/React and experience as a Tech Lead",
+  "formations": [
+    {
+      "title": "UDESC - CEPLAN",
+      "description": "BACHELOR INFORMATION SYSTEMS",
+      "time": "2014-2019"
+    }
+  ],
   "role:title": "PROFESSIONAL EXPERIENCE",
-  "role:1:job-title": "Senior Front-End Software Engineer",
-  "role:1:company-name": "TOURRADAR",
-  "role:1:time": "DECEMBER 2021 - JUNE 2024",
-  "role:2:job-title": "Tech Lead",
-  "role:2:company-name": "FOTON TECH",
-  "role:2:time": "JANUARY 2021 - OCTOBER 2021",
-  "role:3:job-title": "Fullstack Developer",
-  "role:3:company-name": "FOTON TECH",
-  "role:3:time": "JULY 2020 - JANUARY 2021",
-  "role:4:job-title": "Freelancer Developer",
-  "role:4:company-name": "FREELANCER",
-  "role:4:time": "OCTOBER 2019 - JULY 2020",
-  "role:5:job-title": "Developer",
-  "role:5:company-name": "BPLUS TECNOLOGIA LTDA.",
-  "role:5:time": "JANUARY 2018 - OCTOBER 2019",
-  "role:6:job-title": "Web Developer",
-  "role:6:company-name": "XTHOR SOLUÇÕES TECNOLOGICAS",
-  "role:6:time": "SEPTEMBER 2015 - JANUARY 2018",
-  "tecnologies:title": "SKILLS",
-  "tecnologies:content": "React - Apollo - GraphQL - Redux - Redux Saga - REST - Go - Node - MySQL - PostgreSQL - Docker - Github Actions - Bitbucket Pipeline - Webpack - Git - Scrum - JavaScript - SASS - CSS3 - CSS - HTML - Gulp - Linux - WordPress - React Native"
+  "roles": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "TOURRADAR",
+      "time": "DEC 2021 - JUN 2024",
+      "achievements": [
+        "Refactored the tour price calculator to include price categories by user demographics, enhancing offer precision and personalization",
+        "Led technological decision-making for frontend projects, ensuring innovation and efficiency",
+        "Completely restructured GraphQL APIs to meet new validation and architecture rules, improving performance and security",
+        "Responsible for vulnerability removal and tool updates, ensuring system security and efficiency",
+        "Planned and executed the migration of legacy projects to modern technologies, increasing scalability and maintainability",
+        "Integrated AI into B2C communication mechanisms, enhancing customer interaction and satisfaction"
+      ]
+    },
+    {
+      "title": "Tech Lead",
+      "company": "FOTON TECH",
+      "time": "JAN 2021 - OCT 2021",
+      "achievements": [
+        "Significantly contributed to the structuring of the company and its culture, resulting in staff growth and project increase",
+        "Led the migration of legacy architectures in multinational projects, ensuring modernization and efficiency",
+        "Organized internal lectures and events for knowledge sharing, promoting a continuous learning environment"
+      ]
+    },
+    {
+      "title": "Fullstack Developer",
+      "company": "FOTON TECH",
+      "time": "JUL 2020 - JAN 2021",
+      "achievements": [
+        "Developed and structured design systems in monorepo projects, standardizing and optimizing development",
+        "Structured GraphQL projects with a focus on type-safety, ensuring data integrity and efficiency",
+        "Supported microservices developed in various programming languages (Node, Golang, and Elixir), ensuring interoperability and performance",
+        "Developed mobile applications focused on Bitcoin and Lightning Network, expanding the company's product offerings"
+      ]
+    },
+    {
+      "title": "Freelancer Developer",
+      "company": "FREELANCER",
+      "time": "OCT 2019 - JUL 2020",
+      "achievements": []
+    },
+    {
+      "title": "Developer",
+      "company": "BPLUS TECNOLOGIA LTDA",
+      "time": "JAN 2018 - OCT 2019",
+      "achievements": []
+    },
+    {
+      "title": "Web Developer",
+      "company": "XTHOR SOLUÇÕES TECNOLOGICAS",
+      "time": "SEP 2015 - JAN 2018",
+      "achievements": []
+    }
+  ],
+  "skillsAndInterests:title": "SKILLS & INTERESTS",
+  "skillsAndInterests:skillsTitle": "Skills",
+  "skillsAndInterests:skills": [
+    "React",
+    "GraphQL",
+    "Redux",
+    "REST",
+    "Go",
+    "Node"
+  ],
+  "skillsAndInterests:interestsTitle": "Interests",
+  "skillsAndInterests:interests": "Automating tasks, traveling, story-based games, and code architecture."
 }

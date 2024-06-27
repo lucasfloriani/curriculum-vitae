@@ -5,7 +5,7 @@ const commonStyles = StyleSheet.create({
   sectionTitle: {
     fontFamily: defaultTheme.fonts.primary,
     color: defaultTheme.colors.grey.normal,
-    fontSize: 13,
+    fontSize: 16,
     letterSpacing: 0.9,
     fontWeight: 700,
     marginBottom: 5,

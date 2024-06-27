@@ -3,71 +3,66 @@ import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import defaultTheme from "../../theme/default";
 import commonStyles from "../../common/styles";
 import useLanguageContext from "../Providers/Language/useLanguage";
-import { OptionsKey } from "../../i18n/types";
+import List from "../../common/List";
 
 const styles = StyleSheet.create({
+  role: {
+    marginBottom: 12,
+  },
   roleSubSection: {
-    marginBottom: 18,
+    alignItems: "baseline",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   roleSubTitle: {
-    fontFamily: defaultTheme.fonts.secondary,
     color: defaultTheme.colors.grey.light,
-    fontSize: 10,
-    letterSpacing: 0.9,
+    fontFamily: defaultTheme.fonts.secondary,
+    fontSize: 11,
     fontWeight: 700,
+    letterSpacing: 0.9,
     marginBottom: 6,
   },
-  roleContent: {
-    fontFamily: defaultTheme.fonts.secondary,
+  roleTime: {
     color: defaultTheme.colors.grey.light,
-    fontSize: 8,
+    fontFamily: defaultTheme.fonts.secondary,
+    fontSize: 9,
+    fontWeight: 400,
     letterSpacing: 1,
     lineHeight: 1.3,
-    fontWeight: 400,
-    width: 190,
+    textAlign: "right",
   },
 });
 
 const Role = () => {
   const translations = useLanguageContext();
-  const data = Object.keys(translations)
-    .filter(
-      (key): key is OptionsKey =>
-        key.startsWith("role:") && key !== "role:title"
-    )
-    .reduce((list, key) => {
-      const splittedKey = key.split(":");
-      const orderNumber = parseInt(splittedKey[1], 10);
-      const infoName = splittedKey[2];
-
-      if (list[orderNumber]) {
-        list[orderNumber] = {
-          ...list[orderNumber],
-          [infoName]: translations[key],
-        };
-        return list;
-      }
-
-      list[orderNumber] = {
-        "job-title": "",
-        "company-name": "",
-        time: "",
-        [infoName]: translations[key],
-      };
-
-      return list;
-    }, [] as { "job-title": string; "company-name": string; time: string }[]);
 
   return (
     <View>
       <Text style={commonStyles.sectionTitle}>
         {translations["role:title"]}
       </Text>
-      {data.map((info) => (
-        <View style={styles.roleSubSection} key={info.time}>
-          <Text style={styles.roleSubTitle}>{info["job-title"]}</Text>
-          <Text style={styles.roleContent}>{info["company-name"]}</Text>
-          <Text style={styles.roleContent}>{info.time}</Text>
+      {translations["roles"].map((role) => (
+        <View
+          style={[
+            styles.role,
+            { marginBottom: role.achievements.length > 0 ? 12 : 0 },
+          ]}
+          key={role.time}
+        >
+          <View style={styles.roleSubSection}>
+            <Text style={styles.roleSubTitle}>
+              {role.company} - {role.title}
+            </Text>
+            <Text style={styles.roleTime}>{role.time}</Text>
+          </View>
+          {role.achievements.length > 0 && (
+            <List>
+              {role.achievements.map((achievement) => (
+                <List.Item key={achievement}>{achievement}</List.Item>
+              ))}
+            </List>
+          )}
         </View>
       ))}
     </View>
