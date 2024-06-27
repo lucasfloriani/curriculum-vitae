@@ -7,8 +7,11 @@ import { Languages } from "curriculum/i18n/types";
 
 registerRequiredFonts("../../packages/pdf-fonts");
 
+const devName = "lucas-floriani";
+
+// TODO: We have the same code at apps\web\utils\pdf.ts, let's abstract it later
 const generatePDFPath = (language: Languages) =>
-  `${__dirname}/../web/public/curriculum-${language.toLowerCase()}.pdf`;
+  `${__dirname}/../web/public/${devName}-${language.toLowerCase()}.pdf`;
 
 const main = async () => {
   await Promise.all(
