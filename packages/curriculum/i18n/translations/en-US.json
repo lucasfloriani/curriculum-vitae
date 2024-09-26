@@ -68,12 +68,12 @@
   "skillsAndInterests:title": "SKILLS & INTERESTS",
   "skillsAndInterests:skillsTitle": "Skills",
   "skillsAndInterests:skills": [
-    "React",
-    "GraphQL",
-    "Redux",
-    "REST",
+    "Node",
     "Go",
-    "Node"
+    "React",
+    "Typescript",
+    "GraphQL",
+    "REST"
   ],
   "skillsAndInterests:interestsTitle": "Interests",
   "skillsAndInterests:interests": "Automating tasks, traveling, story-based games, and code architecture."
